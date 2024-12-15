@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Categories</h1>
+<ul>
+    {% for category in categories %}
+    {% if category.recipes_count > 0 %}
+    <li>
+        <h2>{{ category.name }}</h2>
+        <p>Number of recipes: {{ category.recipes_count }}</p>
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}

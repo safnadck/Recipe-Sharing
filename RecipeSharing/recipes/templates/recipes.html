@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load calculate_time %}
+
+{% block content %}
+<h1>Recipes</h1>
+<ul>
+    {% for recipe in recipes %}
+    <li>
+        <h2>{{ recipe.name }}</h2>
+        <p>Preparation Time: {% calculate_time recipe.prep_time %}</p>
+        <p>Preparation Time: {{ recipe.prep_time }} minutes</p>
+        <p>Category: {{ recipe.category }}</p>
+        <a href="{% url 'recipe_details' recipe.id %}">View Recipe Details</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
